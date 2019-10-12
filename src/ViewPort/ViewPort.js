@@ -1,24 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './ViewPort.css';
 import StageA from '../Stage/Stages/StageA';
 import StageB from '../Stage/Stages/StageB';
 
 function ViewPort() {
-
   // update stage here
-  let stage = 'A'
-  let currentStage = undefined;
+  const [stage, setStage] = useState('A');
 
-  switch(stage) {
-    case 'A': currentStage = StageA; break;
-    case 'B': currentStage = StageB; break;
+  const advance = (nextStage) => {
+    setStage(nextStage)
   }
 
   return (
     <div className="ViewPort">
-      {currentStage()}
+    {
+      stage === 'A' && <StageA onSucceed={() => advance('B')} onFail={() => alert('you suck')} /> ||
+      stage === 'B' && <StageB />
+    }
     </div>
-  );
+  )
 }
 
 export default ViewPort;

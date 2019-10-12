@@ -12,7 +12,7 @@ function StageB() {
   }
 
   const layout = <div>
-    Stage A
+    Stage B
     <button onClick={handleSuccess}>Succeed</button>
     <button onClick={handleFailure}>Fail</button>
   </div>
