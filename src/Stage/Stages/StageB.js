@@ -1,23 +1,17 @@
-import React from 'react';
-import BaseStage from '../BaseStage';
+import React from "react";
+import BaseStage from "../BaseStage";
 
-function StageB() {
+function StageB(props) {
+  const { onSucceed, onFail } = props;
 
-  const handleSuccess = (e) => {
-    console.log('Success!')
-  }
+  const layout = (
+    <div>
+      Stage B<button onClick={onSucceed}>Succeed</button>
+      <button onClick={onFail}>Fail</button>
+    </div>
+  );
 
-  const handleFailure = (e) => {
-    console.log('Failure!')
-  }
-
-  const layout = <div>
-    Stage B
-    <button onClick={handleSuccess}>Succeed</button>
-    <button onClick={handleFailure}>Fail</button>
-  </div>
-
-  return <BaseStage data={{layout}} />
+  return <BaseStage data={{ layout }} />;
 }
 
 export default StageB;

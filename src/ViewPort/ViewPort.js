@@ -1,24 +1,46 @@
-import React, {useState} from 'react';
-import './ViewPort.css';
-import StageA from '../Stage/Stages/StageA';
-import StageB from '../Stage/Stages/StageB';
+import React, { useState } from "react";
+import Typography from "@material-ui/core/Typography";
+import "./ViewPort.css";
+import StageA from "../Stage/Stages/StageA";
+import StageB from "../Stage/Stages/StageB";
 
 function ViewPort() {
-  // update stage here
-  const [stage, setStage] = useState('A');
+  const [stage, setStage] = useState("A");
 
-  const advance = (nextStage) => {
-    setStage(nextStage)
+  const advance = nextStage => {
+    setStage(nextStage);
+  };
+
+  const win = () => {
+    alert("You won!");
+  };
+
+  const fail = () => {
+    alert("You sucked!");
+  };
+
+  let stageComponent;
+
+  switch (stage) {
+    case "A":
+      stageComponent = <StageA onSucceed={() => advance("B")} onFail={fail} />;
+      break;
+
+    case "B":
+      stageComponent = <StageB onSucceed={win} onFail={fail} />;
+      break;
+
+    default:
+      stageComponent = <StageA onSucceed={() => advance("B")} onFail={fail} />;
+      break;
   }
 
   return (
-    <div className="ViewPort">
-    {
-      stage === 'A' && <StageA onSucceed={() => advance('B')} onFail={() => alert('you suck')} /> ||
-      stage === 'B' && <StageB />
-    }
-    </div>
-  )
+    <>
+      <Typography variant="h1">Mission Control!</Typography>
+      {stageComponent}
+    </>
+  );
 }
 
 export default ViewPort;
