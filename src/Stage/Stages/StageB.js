@@ -1,7 +1,7 @@
 import React from 'react';
 import BaseStage from '../BaseStage';
 
-function StageA() {
+function StageB() {
 
   const handleSuccess = (e) => {
     console.log('Success!')
@@ -20,4 +20,4 @@ function StageA() {
   return <BaseStage data={{layout}} />
 }
 
-export default StageA;
+export default StageB;

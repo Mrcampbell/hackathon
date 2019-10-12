@@ -1,7 +1,7 @@
 import React from 'react';
-import './Stage.css';
+import './BaseStage.css';
 
-function Stage(props) {
+function BaseStage(props) {
   const { data } = props;
   return (
     <div className="Stage">
@@ -10,4 +10,4 @@ function Stage(props) {
   );
 }
 
-export default Stage;
+export default BaseStage;
