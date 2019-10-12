@@ -6,8 +6,14 @@ import StageB from "../Stage/Stages/StageB";
 import BlueSwitch from "../Stage/Stages/BlueSwitch";
 import PushButton from "../Stage/Stages/PushButton";
 
+const TIME_LIMIT_SECONDS = 5;
+
 function ViewPort() {
   const [stage, setStage] = useState("PushCount");
+
+  const timer = setTimeout(() => {
+    fail("you took too long!!!")
+  }, TIME_LIMIT_SECONDS * 1000);
 
   const advance = nextStage => {
     setStage(nextStage);
@@ -17,8 +23,8 @@ function ViewPort() {
     alert("You won!");
   };
 
-  const fail = () => {
-    alert("You sucked!");
+  const fail = (message) => {
+    alert("You sucked!\n" + message );
   };
 
   let stageComponent;
