@@ -117,8 +117,6 @@ function BlueSwitch(props) {
         <div style={switchBoxStyle}>{greySwitch(GREY_4)}</div>
         <div style={switchBoxStyle}>{blueSwitch(BLUE_3)}</div>
       </div>
-      <button onClick={onSucceed}>Succeed</button>
-      <button onClick={onFail}>Fail</button>
     </div>
   );
 
