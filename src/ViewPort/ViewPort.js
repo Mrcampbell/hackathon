@@ -3,9 +3,10 @@ import Typography from "@material-ui/core/Typography";
 import "./ViewPort.css";
 import StageA from "../Stage/Stages/StageA";
 import StageB from "../Stage/Stages/StageB";
+import BlueSwitch from "../Stage/Stages/BlueSwitch";
 
 function ViewPort() {
-  const [stage, setStage] = useState("A");
+  const [stage, setStage] = useState("BlueSwitch");
 
   const advance = nextStage => {
     setStage(nextStage);
@@ -28,6 +29,10 @@ function ViewPort() {
 
     case "B":
       stageComponent = <StageB onSucceed={win} onFail={fail} />;
+      break;
+
+    case "BlueSwitch":
+      stageComponent = <BlueSwitch onSucceed={() => advance("B")} onFail={fail} />;
       break;
 
     default:
