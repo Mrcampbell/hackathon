@@ -33,7 +33,7 @@ function ViewPort() {
       break;
 
     case "BlueSwitch":
-      stageComponent = <BlueSwitch instructions="turn off the blue switches!" onSucceed={() => advance("B")} onFail={fail} />;
+      stageComponent = <BlueSwitch instructions="turn off the blue switches! (sorry, colorblind people)" onSucceed={() => advance("B")} onFail={fail} />;
       break;
     
     case "PushCount":
