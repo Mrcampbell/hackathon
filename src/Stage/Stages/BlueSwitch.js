@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import BaseStage from "../BaseStage";
 import { Switch } from "@material-ui/core";
 
-const switchBoxStyle = { flexGrow: 1, width: '33%', height: '125px', outline: '1px solid black' }
+const switchBoxStyle = { flexGrow: 1, width: '33%', outline: '1px solid black', paddingTop: '15%', paddingBottom: '15%' }
 
 const RED_1 = 'red 1'
 const RED_2 = 'red 2'
@@ -12,14 +12,13 @@ const RED_5 = 'red 5'
 const BLUE_1 = 'blue 1'
 const BLUE_2 = 'blue 2'
 const BLUE_3 = 'blue 3'
-const BLUE_4 = 'blue 4'
 const GREY_1 = 'grey 1'
 const GREY_2 = 'grey 2'
 const GREY_3 = 'grey 3'
 const GREY_4 = 'grey 4'
 
 function BlueSwitch(props) {
-  const { onSucceed, onFail } = props;
+  const { onSucceed, onFail, instructions } = props;
 
   const instantFail = () => {
     console.log('fail')
@@ -94,12 +93,17 @@ function BlueSwitch(props) {
   };
 
   const layout = (
-    <div style={{ width: '300px', height: '500px', outline: '1px solid black' }}>
+    <div style={{ width: '300px', height: '500px'}}>
+         <div style={{ marginTop: '30px' }}>
+          {instructions}
+        </div>
       <div style={{
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+        marginTop: '30px'
       }}>
+    
         <div style={switchBoxStyle}>{redSwitch(RED_1)}</div>
         <div style={switchBoxStyle}>{blueSwitch(BLUE_1)}</div>
         <div style={switchBoxStyle}>{redSwitch(RED_2)}</div>

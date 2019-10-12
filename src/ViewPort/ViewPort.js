@@ -4,6 +4,7 @@ import "./ViewPort.css";
 import StageA from "../Stage/Stages/StageA";
 import StageB from "../Stage/Stages/StageB";
 import BlueSwitch from "../Stage/Stages/BlueSwitch";
+import PushButton from "../Stage/Stages/PushButton";
 
 function ViewPort() {
   const [stage, setStage] = useState("BlueSwitch");
@@ -32,7 +33,11 @@ function ViewPort() {
       break;
 
     case "BlueSwitch":
-      stageComponent = <BlueSwitch onSucceed={() => advance("B")} onFail={fail} />;
+      stageComponent = <BlueSwitch instructions="turn off the blue switches!" onSucceed={() => advance("B")} onFail={fail} />;
+      break;
+    
+    case "PushCount":
+      stageComponent = <PushButton target={5} instructions="press 5 times" onSucceed={() => advance("B")} onFail={fail} />;
       break;
 
     default:
